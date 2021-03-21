@@ -2,16 +2,20 @@ package com.ivoronline.springboot_junit.entities;
 
 import com.ivoronline.springboot_junit.controllers.MyController;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class MyControllerTest {
+
+  @Autowired MyController myController;
 
   @Test
   void hello() {
 
     //PERFORM ACTION
-    MyController myController = new MyController();
-    String       result       = myController.hello();
+    String result = myController.hello();
 
     //TEST RESULT
     assertEquals("Hello from Controller", result);
